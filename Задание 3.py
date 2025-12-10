@@ -5,17 +5,15 @@ import sys
 
 if __name__ == '__main__':
     count = tuple(map(int, input().split()))
-    temprature = tuple(map(int, input().split()))
-    if not count or not temprature or len(count) != len(temprature):
+    temperature = tuple(map(int, input().split()))
+    if not count or not temperature:
         print("Неверные данные", file=sys.stderr)
         exit(1)
 
     rain = 0
     snow = 0
 
-    for i, c in enumerate(count):
-        temp = temprature[i]
-
+    for c, temp in zip(count, temperature):
         if temp > 0:
             rain += c
         else:
